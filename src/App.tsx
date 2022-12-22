@@ -14,8 +14,8 @@ function App() {
      
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path='/oauth/authorize' element={<Authorize/>} />
+        <Route path="/home" element={<Home />} />
+        <Route  path="/oauth/authorize" element={<Authorize/>} />
       </Routes>
     </BrowserRouter>
 
