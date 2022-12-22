@@ -18,7 +18,7 @@ function App() {
 
 
         <Route path="/home" element={<Home />} />
-        <Route  path="/oauth/authorize" element={<Authorize/>} />
+        <Route  path="/oauth" element={<Authorize/>} />
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
     </BrowserRouter>
