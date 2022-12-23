@@ -12,8 +12,10 @@ axios.post(`https://8be1-2409-4070-2297-cb90-9036-3c88-cfe4-24b9.in.ngrok.io/app
 },{
     headers:{
         "ngrok-skip-browser-warning": "true",
-        Authorization : `Bearer ${stateObj.authSessionToken}`
-    }
+        Authorization : `Bearer ${stateObj.authSessionToken}`,
+        Accept: "application/json",
+  },
+  withCredentials: true,
 }).then(res=>{
     window.close();
 }).catch(err=>{
