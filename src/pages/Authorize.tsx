@@ -11,6 +11,7 @@ axios.post(`https://8be1-2409-4070-2297-cb90-9036-3c88-cfe4-24b9.in.ngrok.io/app
  isFinalStep : stateObj.isFinalStep 
 },{
     headers:{
+        "ngrok-skip-browser-warning": "true",
         Authorization : `Bearer ${stateObj.authSessionToken}`
     }
 }).then(res=>{
