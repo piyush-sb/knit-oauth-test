@@ -18,13 +18,11 @@ axios.post(`https://8be1-2409-4070-2297-cb90-9036-3c88-cfe4-24b9.in.ngrok.io/app
   },
   withCredentials: true,
 }).then(res=>{
-    window.close();
+    window.alert('Eveyrthing went fine, request was success');
 }).catch(err=>{
   console.error(err);
   window.alert('Something went wrong, please try again');
-  setTimeout(function(){
-    window.close()
-  },3000);
+
 })
     return (
         <div>
