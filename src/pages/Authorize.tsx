@@ -8,7 +8,8 @@ const stateObj= JSON.parse(atob(stateStr));
 axios.post(`https://c762-2409-4070-4d4b-c876-11f6-4969-ccfc-6348.in.ngrok.io/app.oauthAuthorize`, {
  appId: stateObj.appId ,
  oauthCode : codeStr,
- isFinalStep : stateObj.isFinalStep 
+ isFinalStep : stateObj.isFinalStep,
+ stepId: stateObj.stepId
 },{
     headers:{
         "ngrok-skip-browser-warning": "true",
