@@ -31,7 +31,7 @@ axios.post(`https://3a34-2409-4070-4215-9166-3ddc-a98d-2296-1d10.in.ngrok.io/app
 
 })
     return (
-        <div style={{display:'flex',height:'100%', justifyContent:'center',alignItems:"center"}}>
+        <div style={{display:'flex',height:'100%', width:'100vw',justifyContent:'center',alignItems:"center"}}>
            <img src={loadingSVg}  alt="loading" />
         </div>
     )
