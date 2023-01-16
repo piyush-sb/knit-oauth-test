@@ -32,8 +32,8 @@ function AdminAuth() {
             "ngrok-skip-browser-warning": "true",
             Accept: "application/json",
 
-            Authorization:
-              "Bearer ce38a2db91f8fe91ae15f48d651934ea9b98c4f0a1d360f0b85d07337da3294c",
+            // Authorization:
+            //   "Bearer ce38a2db91f8fe91ae15f48d651934ea9b98c4f0a1d360f0b85d07337da3294c",
           },
         }
       )
