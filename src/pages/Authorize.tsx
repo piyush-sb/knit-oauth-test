@@ -6,7 +6,7 @@ function Authorize (){
     let codeStr: string = searchParams.get('code')|| '';
 let stateStr:string = searchParams.get('state') || '';            
 const stateObj= JSON.parse(atob(stateStr));
-axios.post(`https://54cb-2409-4070-4303-d425-a88d-43ca-7812-f7e5.in.ngrok.io/app.oauthAuthorize`, {
+axios.post(`https://4582-2409-4070-2b9a-770f-ccc5-70c3-e563-8dd3.in.ngrok.io/app.oauthAuthorize`, {
  appId: stateObj.appId ,
  oauthCode : codeStr,
  isFinalStep : stateObj.isFinalStep,
