@@ -18,7 +18,6 @@ axios.post(`https://4582-2409-4070-2b9a-770f-ccc5-70c3-e563-8dd3.in.ngrok.io/app
         "Accept": "application/json",
         "Access-Control-Allow-Origin": '**'
   },
-  withCredentials: true,
 }).then(res=>{
     console.log(res);
     window.alert('Everything went fine, request was success');
@@ -29,7 +28,7 @@ axios.post(`https://4582-2409-4070-2b9a-770f-ccc5-70c3-e563-8dd3.in.ngrok.io/app
   console.error(err);
   window.alert('Something went wrong, please try again');
 
-})
+}) 
     return (
         <div style={{display:'flex',height:'100%', width:'100vw',justifyContent:'center',alignItems:"center"}}>
            <img src={loadingSVg}  alt="loading" />

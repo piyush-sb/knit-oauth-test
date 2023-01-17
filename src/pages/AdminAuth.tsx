@@ -5,14 +5,23 @@ import { KnitWeb } from "../components/KnitAuth";
 import { useEffect, useState } from "react";
 function AdminAuth() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [token, setToken] = useState("");
-  const [adminMode, setAdminMode] = useState(false);
-
+  const [adminDetails, setAdminDetails] = useState<{
+    token?: string;
+    appId?: string;
+  }>({});
 
   useEffect(() => {
+    let stateStr: string = searchParams.get("state") || "";
+    const stateObj = JSON.parse(atob(stateStr));
+    console.log("stateObj", stateObj);
+    setAdminDetails({
+      token: stateObj.authSessionToken,
+      appId: stateObj.appId,
+    });
+    //setToken(stateObj.authSessionToken)
     console.log("useffect called");
     // document.addEventListener('onnewsession',()=>{
-    newSessionCall();
+    //newSessionCall();
   }, []);
 
   const newSessionCall = () => {
@@ -31,14 +40,19 @@ function AdminAuth() {
           headers: {
             "ngrok-skip-browser-warning": "true",
             Accept: "application/json",
+            "Access-Control-Allow-Origin": true,
 
-            // Authorization:
-            //   "Bearer ce38a2db91f8fe91ae15f48d651934ea9b98c4f0a1d360f0b85d07337da3294c",
+            Authorization:
+              "Bearer 09e8b0adebb2df4bfc205be8ffe9e3c24297c37d4e005286b2f3bab773e5e24f",
           },
         }
       )
       .then((res) => {
-        setToken(res.data.token);
+        console.log("topkb", res.data.msg.token);
+        setAdminDetails({
+          token: res.data.msg.token,
+          appId: "keka",
+        });
       });
   };
   const onSuccess = (e: CustomEvent) => {
@@ -47,7 +61,9 @@ function AdminAuth() {
 
   return (
     <KnitWeb
-      authSessionToken={token}
+      authSessionToken={adminDetails.token}
+      adminMode={Object.keys(adminDetails).length > 0}
+      selectedApp={adminDetails.appId}
       onNewSession={() => {
         console.log("CALL API FROM COMP");
         newSessionCall();
