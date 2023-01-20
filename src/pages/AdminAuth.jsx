@@ -1,17 +1,14 @@
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
-import loadingSVg from "../assets/loading.svg";
 import { KnitWeb } from "../components/KnitAuth";
 import { useEffect, useState } from "react";
+
 function AdminAuth() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [adminDetails, setAdminDetails] = useState<{
-    token?: string;
-    appId?: string;
-  }>({});
+  const [adminDetails, setAdminDetails] = useState({});
 
   useEffect(() => {
-    let stateStr: string = searchParams.get("state") || "";
+    let stateStr = searchParams.get("state") || "";
     const stateObj = JSON.parse(atob(stateStr));
     console.log("stateObj", stateObj);
     setAdminDetails({
@@ -55,8 +52,9 @@ function AdminAuth() {
         });
       });
   };
-  const onSuccess = (e: CustomEvent) => {
-    console.log(e.detail.token);
+  const onSuccess = (e) => {
+    e.preventDefault();
+    console.log(e?.detail?.token);
   };
 
   return (
@@ -64,9 +62,13 @@ function AdminAuth() {
       authSessionToken={adminDetails.token}
       adminMode={Object.keys(adminDetails).length > 0}
       selectedApp={adminDetails.appId}
-      onNewSession={() => {
+      onNewSession={(e) => {
+        e.preventDefault();
         console.log("CALL API FROM COMP");
         newSessionCall();
+      }}
+      onSuccess={(e) => {
+        onSuccess(e);
       }}
     ></KnitWeb>
   );

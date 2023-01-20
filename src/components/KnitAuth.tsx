@@ -1,4 +1,5 @@
-import KnitAuth from "../assets/knit-web.js";
+import KnitAuth from "https://d1s750jujhrvo3.cloudfront.net/knit-sandbox.js";
+
 import type { EventName } from "@lit-labs/react";
 import * as React from "react";
 import { createComponent } from "@lit-labs/react";
@@ -13,8 +14,5 @@ const KnitWeb = createComponent({
   },
 });
 
-// KnitWeb.propTypes = {
-//     authSessionToken : PropTypes.string
-// }
 
 export { KnitWeb };
