@@ -1,7 +1,7 @@
 version: "2"
 services:
-  nginx-react:
-    container_name: ngixreactapp
+  app:
+    container_name: dashboard_ui
     build:
       context: .
       dockerfile: Dockerfile
