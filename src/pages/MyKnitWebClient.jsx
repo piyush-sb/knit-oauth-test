@@ -1,8 +1,7 @@
-import { useSearchParams } from "react-router-dom";
 import { KnitWeb } from "../components/KnitWeb";
 import { useEffect, useState } from "react";
 
-function KnitWebClient() {
+function App() {
   const [sesssionToken, setSessionToken] = useState('');
   const [integrationId, setIntegrationId] = useState(null);
 
@@ -20,7 +19,7 @@ fetch('https://mock-knit-session.onrender.com/getSessionToken', {method:"GET"}).
 }
   const onSuccessFn = (e) => {
     e.preventDefault();
-    console.log(e.detail['integration-id']);
+    setInetgrationId(e.detail['integration-id']);
   };
 
   return (
@@ -31,8 +30,8 @@ fetch('https://mock-knit-session.onrender.com/getSessionToken', {method:"GET"}).
       onSuccess={onSuccessFn}
     >
       <button slot="trigger">Integrate with Knit</button>
-    </KnitWeb>
+    </KnitWeb> 
   );
 }
 
-export default KnitWebClient;
+export default App;
