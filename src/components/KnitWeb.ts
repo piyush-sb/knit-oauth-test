@@ -1,7 +1,10 @@
-import KnitAuth from "https://d1s750jujhrvo3.cloudfront.net/knit-sandbox.js";
 
-import type { EventName } from "@lit-labs/react";
 import * as React from "react";
+// Import the web component from this js file link
+import KnitAuth from "https://d1s750jujhrvo3.cloudfront.net/knit-sandbox.js";
+// In your React project folder, run:
+// npm install --save @lit-labs/react
+import type { EventName } from "@lit-labs/react";
 import { createComponent } from "@lit-labs/react";
 
 const KnitWeb = createComponent({

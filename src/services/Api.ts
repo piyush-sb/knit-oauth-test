@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 
 const prodApi: AxiosInstance = axios.create({
-  baseURL: `https://frontend-engine.sandbox.getknit.dev/`,
+  baseURL: `https://api.sandbox.getknit.dev/`,
   headers: {
     "ngrok-skip-browser-warning": "true",
     Accept: "application/json",
@@ -10,7 +10,7 @@ const prodApi: AxiosInstance = axios.create({
 });
 
 const sanboxApi: AxiosInstance = axios.create({
-  baseURL: `https://frontend-engine.sandbox.getknit.dev/`,
+  baseURL: `https://api.sandbox.getknit.dev/`,
   headers: {
     "ngrok-skip-browser-warning": "true",
     Accept: "application/json",

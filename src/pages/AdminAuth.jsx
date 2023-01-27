@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
-import { KnitWeb } from "../components/KnitAuth";
+import { KnitWeb } from "../components/KnitWeb";
 import { useEffect, useState } from "react";
 
 function AdminAuth() {
