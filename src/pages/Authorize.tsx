@@ -26,14 +26,15 @@ function Authorize() {
     )
     .then((res) => {
       console.log(res);
-      window.alert("Everything went fine, request was success");
       setTimeout(function () {
         window.close();
       }, 1000);
     })
     .catch((err) => {
       console.error(err);
-      window.alert("Something went wrong, please try again");
+      setTimeout(function () {
+        window.close();
+      }, 1000);
     });
   return (
     <div
