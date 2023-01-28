@@ -1,5 +1,5 @@
 // Import the web component from this js file link
-import KnitAuth from "https://d284iem4owwq8w.cloudfront.net/knit-web.js";
+import KnitAuth from "https://af1.getknit.dev/knit-ui-comp.js";
 import React from "react";
 // In your React project folder, run:
 // npm install --save @lit-labs/react
