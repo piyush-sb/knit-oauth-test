@@ -24,7 +24,7 @@ function App() {
       .then((r) => {
         setApiKey(r.msg.apiKey);
       });
-    fetch("https://api.sandbox.getknit.dev/v1.0/auth.createSession", {
+    fetch("https://frontend-engine.sandbox.getknit.dev/auth.createSession", {
       method: "POST",
       headers: {
         "ngrok-skip-browser-warning": true,
