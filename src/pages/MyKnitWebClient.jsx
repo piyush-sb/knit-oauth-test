@@ -21,7 +21,7 @@ function App() {
     //   .then((res) => res.json())
     //   .then((r) => {
         fetch(
-          "http://localhost:1324/auth.createSession",
+          "https://frontend-engine.sandbox.getknit.dev/auth.createSession",
           {
             method: "POST",
             headers: {
