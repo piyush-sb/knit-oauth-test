@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 function App() {
   const [sesssionToken, setSessionToken] = useState("");
   const [integrationId, setIntegrationId] = useState(null);
-  const [apiKey, setApiKey] = useState(
-    "09e8b0adebb2df4bfc205be8ffe9e3c24297c37d4e005286b2f3bab773e5e24f"
-  );
 
   useEffect(() => {
     newSessionFn();
@@ -14,6 +11,7 @@ function App() {
 
   const newSessionFn = (e) => {
     e?.preventDefault();
+
     fetch(`https://run.mocky.io/v3/e1c80e42-1038-40fe-b832-97889ab160d2`, {
       method: "GET",
       headers: {
@@ -22,29 +20,32 @@ function App() {
     })
       .then((res) => res.json())
       .then((r) => {
-        setApiKey(r.msg.apiKey);
-      });
-    fetch("https://frontend-engine.sandbox.getknit.dev/auth.createSession", {
-      method: "POST",
-      headers: {
-        "ngrok-skip-browser-warning": true,
-        Authorization: "Bearer " + apiKey,
-      },
-      body: JSON.stringify({
-        originOrgId: "Rapido",
-        originOrgName: "Rapido",
-        originUserEmail: "nischal@rapido.ai",
-        originUserName: "Nischal Chenna",
-      }),
-    })
-      .then((res) => res.json())
-      .then((r) => {
-        setSessionToken(r.msg.token);
+        fetch(
+          "https://frontend-engine.sandbox.getknit.dev/auth.createSession",
+          {
+            method: "POST",
+            headers: {
+              "ngrok-skip-browser-warning": true,
+              Authorization: "Bearer " + r.apiKey,
+            },
+            body: JSON.stringify({
+              originOrgId: "Rapido",
+              originOrgName: "Rapido",
+              originUserEmail: "nischal@rapido.ai",
+              originUserName: "Nischal Chenna",
+            }),
+          }
+        )
+          .then((res) => res.json())
+          .then((r) => {
+            setSessionToken(r.msg.token);
+          });
       });
   };
-  const onSuccessFn = (e) => {
+  const onFinishFn = (e) => {
     e.preventDefault();
-    setInetgrationId(e.detail["integration-id"]);
+    setIntegrationId(e.detail["integration-id"]);
+    console.log("integration-id:- ",e.detail["integration-id"])
   };
 
   return (
@@ -52,7 +53,7 @@ function App() {
       authSessionToken={sesssionToken}
       sandbox={true}
       onNewSession={newSessionFn}
-      onSuccess={onSuccessFn}
+      onFinish={onFinishFn}
     >
       <button slot="trigger">Integrate with Knit</button>
     </KnitWeb>

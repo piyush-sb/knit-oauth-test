@@ -13,7 +13,7 @@ const KnitWeb = createComponent({
   react: React,
   events: {
     onNewSession: "onNewSession" as EventName<CustomEvent>,
-    onSuccess: "onSuccess" as EventName<CustomEvent>,
+    onFinish: "onFinish" as EventName<CustomEvent>,
   },
 });
 

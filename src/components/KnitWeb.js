@@ -11,7 +11,7 @@ const KnitWeb = createComponent({
   react: React,
   events: {
     onNewSession: "onNewSession",
-    onSuccess: "onSuccess",
+    onFinish: "onFinish",
   },
 });
 export { KnitWeb };
