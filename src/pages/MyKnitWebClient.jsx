@@ -12,21 +12,21 @@ function App() {
   const newSessionFn = (e) => {
     e?.preventDefault();
 
-    fetch(`https://run.mocky.io/v3/e1c80e42-1038-40fe-b832-97889ab160d2`, {
-      method: "GET",
-      headers: {
-        "ngrok-skip-browser-warning": true,
-      },
-    })
-      .then((res) => res.json())
-      .then((r) => {
+    // fetch(`https://run.mocky.io/v3/e1c80e42-1038-40fe-b832-97889ab160d2`, {
+    //   method: "GET",
+    //   headers: {
+    //     "ngrok-skip-browser-warning": true,
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((r) => {
         fetch(
-          "https://frontend-engine.sandbox.getknit.dev/auth.createSession",
+          "http://localhost:1324/auth.createSession",
           {
             method: "POST",
             headers: {
               "ngrok-skip-browser-warning": true,
-              Authorization: "Bearer " + r.apiKey,
+              // Authorization: "Bearer " + r.apiKey,
             },
             body: JSON.stringify({
               originOrgId: "Rapido",
@@ -40,7 +40,7 @@ function App() {
           .then((r) => {
             setSessionToken(r.msg.token);
           });
-      });
+      // });
   };
   const onFinishFn = (e) => {
     e.preventDefault();
