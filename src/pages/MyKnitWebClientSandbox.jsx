@@ -33,6 +33,8 @@ function App() {
               originOrgName: "Rapido",
               originUserEmail: "nischal@rapido.ai",
               originUserName: "Nischal Chenna",
+              showScopeControl: true,
+              showCustomMapping:true
             }),
           }
         )
@@ -52,6 +54,7 @@ function App() {
     <KnitWebSandbox
       authSessionToken={sesssionToken}
       sandbox={true}
+      nonce={"AsPr"}
       onNewSession={newSessionFn}
       onFinish={onFinishFn}
     >

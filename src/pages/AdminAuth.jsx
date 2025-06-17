@@ -30,6 +30,7 @@ function AdminAuth() {
 
   return (
     <KnitWeb
+      nonce="AsPr"
       authSessionToken={adminDetails.token}
       adminMode={Object.keys(adminDetails).length > 0}
       selectedApp={adminDetails.appId}

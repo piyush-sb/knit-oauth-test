@@ -33,6 +33,8 @@ function App() {
               originOrgName: "Rapido",
               originUserEmail: "nischal@rapido.ai",
               originUserName: "Nischal Chenna",
+         
+              
             }),
           }
         )
@@ -51,6 +53,7 @@ function App() {
   return (
     <KnitWeb
       authSessionToken={sesssionToken}
+      nonce="AsPr"
       sandbox={true}
       onNewSession={newSessionFn}
       onFinish={onFinishFn}
